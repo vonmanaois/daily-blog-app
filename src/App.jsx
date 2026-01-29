@@ -1,10 +1,23 @@
-import Post from "./components/Post";
-
+import PostsList from "./components/PostsList";
+import MainHeader from "./components/MainHeader";
+import { useState } from "react";
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  function showModalHandler() {
+    setIsModalOpen(true);
+  }
+
+  function closeModalHandler() {
+    setIsModalOpen(false);
+  }
   return (
-    <main>
-      <Post author="John Doe" text="I will be a developer" />
-    </main>
+    <>
+      <MainHeader onCreatePost={showModalHandler} />
+      <main>
+        <PostsList isVisible={isModalOpen} onStopPosting={closeModalHandler} />
+      </main>
+    </>
   );
 }
 export default App;
