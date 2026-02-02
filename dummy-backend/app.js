@@ -40,4 +40,5 @@ app.post("/posts", async (req, res) => {
   res.status(201).json({ message: "Stored new post.", post: newPost });
 });
 
+console.log("Server is running in port 8080!");
 app.listen(8080);
